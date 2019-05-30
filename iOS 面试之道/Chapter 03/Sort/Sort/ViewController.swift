@@ -13,6 +13,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        var source = [4, 5, 3, 1, 2]
+        
+//        Sort.bubbleSort(sourceArray: &source)
+//        Sort.insertSort(sourceArray: &source)
+//        Sort.insertSort1(sourceArray: &source)
+        Sort.simpleSelectionSort(sourceArray: &source)
+        
+        print(source)
+        
     }
 
 
