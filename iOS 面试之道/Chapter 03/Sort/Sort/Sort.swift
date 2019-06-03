@@ -110,4 +110,69 @@ class Sort {
             sourceArray[tempIndex] = temp
         }
     }
+    
+    
+    
+    
+    
+    // 归并排序
+    class func mergeSort(_ array: [Int]) -> [Int] {
+        var helper = Array(repeating: 0, count: array.count)
+        var array = array
+        mergeSort(&array, &helper, 0, array.count - 1)
+        return array
+    }
+    
+    class func mergeSort(_ array:inout [Int],_ helper:inout [Int], _ low: Int, _ high: Int) {
+        guard low < high else {
+            return
+        }
+        
+        let middle = (high - low) / 2 + low
+        print(low, middle)
+        mergeSort(&array, &helper, low, middle)
+        mergeSort(&array, &helper, middle + 1, high)
+        merge(&array, &helper, low, middle, high)
+    }
+    
+    class func merge(_ array:inout [Int],_ helper:inout [Int], _ low: Int, _ middle: Int, _ high: Int) {
+        // copy both halves into a helper array
+        print("ll", low, middle, high)
+        for i in low ... high {
+            helper[i] = array[i]
+        }
+        
+        var helperLeft = low, helperRight = middle + 1
+        var current = low
+        
+        // iterate through helper array and copy the right one to original array
+        while helperLeft <= middle && helperRight <= high {
+            print(helper, array)
+            if helper[helperLeft] <= helper[helperRight] {
+                array[current] = helper[helperLeft]
+                helperLeft += 1
+            } else {
+                array[current] = helper[helperRight]
+                helperRight += 1
+            }
+            current += 1
+            print(helper, array)
+        }
+        
+        // handle the rest
+        print("mmm", middle, helperLeft)
+        guard middle - helperLeft >= 0 else {
+            return
+        }
+        for i in 0 ... middle - helperLeft {
+            print(i, current)
+            array[current + i] = helper[helperLeft + i]
+        }
+    }
+    
+    
+    
+    
+    
+    // 快速排序
 }

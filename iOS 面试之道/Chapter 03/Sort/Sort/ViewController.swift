@@ -14,14 +14,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        var source = [4, 5, 3, 1, 2]
+//        var source = [5, 4, 3, 2, 1, 6, 8, 7, 9]
+        var source = [3, 5, 4, 6]
         
 //        Sort.bubbleSort(sourceArray: &source)
 //        Sort.insertSort(sourceArray: &source)
 //        Sort.insertSort1(sourceArray: &source)
-        Sort.simpleSelectionSort(sourceArray: &source)
+//        Sort.simpleSelectionSort(sourceArray: &source)
+        let array = Sort.mergeSort(source)
         
-        print(source)
+        print(array)
         
     }
 
