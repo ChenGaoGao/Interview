@@ -175,4 +175,18 @@ class Sort {
     
     
     // 快速排序
+    class func quicksort(_ array:[Int]) -> [Int] {
+        print(array)
+        guard array.count > 1 else {
+            return array
+        }
+        let pivot = array[array.count / 2]
+        let left = array.filter { $0 < pivot }
+        let middle = array.filter { $0 == pivot }
+        let right = array.filter { $0 > pivot }
+        
+        
+        
+        return quicksort(left) + middle + quicksort(right)
+    }
 }

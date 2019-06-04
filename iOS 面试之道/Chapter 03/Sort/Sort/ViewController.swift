@@ -21,11 +21,34 @@ class ViewController: UIViewController {
 //        Sort.insertSort(sourceArray: &source)
 //        Sort.insertSort1(sourceArray: &source)
 //        Sort.simpleSelectionSort(sourceArray: &source)
-        let array = Sort.mergeSort(source)
+//        let array = Sort.mergeSort(source)
+//        let array = Sort.quicksort(source)
         
-        print(array)
+//        print(array)
         
+        let bounds = self.minMax(array: [8, -6, 2, 109, 3, 71])
+        
+        print(bounds, bounds.min, bounds.max)
     }
+    
+    
+    
+    
+    func minMax(array: [Int]) -> (min: Int, max: Int) {
+        var currentMin = array[0]
+        var currentMax = array[0]
+        for value in array[1..<array.count] {
+            if value < currentMin {
+                currentMin = value
+            } else if value > currentMax {
+                currentMax = value
+            }
+        }
+        return (currentMin, currentMax)
+    }
+    
+    
+    
 
 
 }
